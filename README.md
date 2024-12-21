@@ -49,6 +49,6 @@ The error-handling code is crap. I ran out of time to understand all the ins-and
 
 # Extensions
 
-This [packer](image-pack-unpack.rkt) produces single-line output. This has the virtue of not producing a large block of text, at the cost of making extremely wide lines. This was an intentional decision, but it could cause some problems in some contexts. It would be nice to extend the packer take more flags that let the user determine whether they want a wide or tall packed text.
+This [packer](image-pack-unpack.rkt) produces single-line output. This has the virtue of not producing a large block of text, at the cost of making extremely wide lines. This was an intentional decision, but it could cause problems in some contexts. It would be nice to extend the packer to take flags that let the user determine whether they want wide or tall packed text.
 
 There is nothing *image*-specific about this. It could embed *any* binary datum. This particular pack/unpack duo is image-centric: images have a height and width, and this is recorded in the byte-string.
