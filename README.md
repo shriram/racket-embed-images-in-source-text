@@ -6,6 +6,11 @@ A natural solution is to store images outside the file. This is a perfectly good
 
 This library provides a "reader extension" to address this problem. Using `#reader "image-reader.rkt" …` makes the subsequent expression (in `…`) use this special reader extension. The reader extension is invoked using the `µ` reader key (on a Mac, you can easily type this as Command-m). The `µ` must be followed by a uuencoded byte-string following a certain format. The reader then automatically turns this into an image value.
 
+The best way to understand the difference is to look at these two files:
+* [examples](examples.rkt)
+* [examples as images](examples-as-images)
+The latter (which you can't view outside DrRacket) has embedded images visible as images in DrRacket. The former has the same images embedded using this reader. The images are not visible without rendering, but *everything else* in the file is readable by all our usual tools.
+
 # How
 
 There are two parts to using this library: embedding images and using them.
