@@ -6,10 +6,12 @@ A natural solution is to store images outside the file. This is a perfectly good
 
 This library provides a "reader extension" to address this problem. Using `#reader "image-reader.rkt" …` makes the subsequent expression (in `…`) use this special reader extension. The reader extension is invoked using the `µ` reader key (on a Mac, you can easily type this as Command-m). The `µ` must be followed by a uuencoded byte-string following a certain format. The reader then automatically turns this into an image value.
 
-The best way to understand the difference is to look at these two files:
+The best way to understand the difference is to look at these two files side-by-side:
+
 * [examples](examples.rkt)
 * [examples as images](examples-as-images)
-The latter (which you can't view outside DrRacket) has embedded images visible as images in DrRacket. The former has the same images embedded using this reader. The images are not visible without rendering, but *everything else* in the file is readable by all our usual tools.
+
+The latter (which you can't view outside DrRacket) has embedded images visible *as images* in DrRacket. The former has the same images embedded using this reader. The images are not meaningful without rendering, but *everything else* in the file is readable by all our usual tools (including outside DrRacket). It's worth noting that an embedded image is a (byte-)string, and hence can be skipped/copied/etc. using standard s-expression editor operations.
 
 # How
 
@@ -46,7 +48,7 @@ You can then embed this byte string in a source program (which is presumably a c
 
 Of course, in the example above, we generated the little dot image programmatically; at that point we could just use the program instead of embedding its output (unless it would take a very long time to run…). 
 
-Consider instead [this file](packing-example.rkt)–which you *can't* usefully view except inside DrRacket (which is the point of this library)—which contains an embedded instance of the Racket "running man" image. Running `pack` on that image produces a byte-string. This byte-string is also embedded in [the examples file](examples.rkt), which *is* readable outside DrRacket even though it too contains an embedded image.
+Consider instead [this file](packing-example.rkt)–which, again, you *can't* usefully view except inside DrRacket, that being the point of this library—which runs `pack` on an embedded instance of the Racket "running man" image to produce a byte-string. This is how we obtained the byte-string to embedded in [the examples file](examples.rkt). Once we've embedded the byte-string, we no longer need the original program (except for future modifications): all the information is in the byte-string.
 
 # Errors
 
