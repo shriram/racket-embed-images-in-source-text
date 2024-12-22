@@ -46,7 +46,7 @@ You can then embed this byte string in a source program (which is presumably a c
 
 Of course, in the example above, we generated the little dot image programmatically; at that point we could just use the program instead of embedding its output (unless it would take a very long time to run…). 
 
-Consider instead [this file](more-examples.rkt)–which you *can't* usefully view except inside DrRacket (which is the point of this library)—which contains an embedded instance of the Racket "running man" image. Running `pack` on that image produces a byte-string. This byte-string is also embedded in [the examples file](examples.rkt), which *is* readable outside DrRacket even though it too contains an embedded image.
+Consider instead [this file](packing-example.rkt)–which you *can't* usefully view except inside DrRacket (which is the point of this library)—which contains an embedded instance of the Racket "running man" image. Running `pack` on that image produces a byte-string. This byte-string is also embedded in [the examples file](examples.rkt), which *is* readable outside DrRacket even though it too contains an embedded image.
 
 # Errors
 
