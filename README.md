@@ -4,7 +4,7 @@ Racket enables you to embed images in the document source. The moment you do, ho
 
 A natural solution is to store images outside the file. This is a perfectly good solution, but *sometimes* it's useful to have a single self-contained file with all of its "assets".
 
-This library provides a "reader extension" to address this problem. Using `#reader "image-reader.rkt" …` makes the subsequent expression (in `…`) use this special reader extension. The reader extension is invoked using the `µ` reader key (on a Mac, you can easily type this as Command-m). The `µ` must be followed by a uuencoded byte-string following a certain format. The reader then automatically turns this into an image value.
+This library provides a "reader extension" to address this problem. Using `#reader "image-reader.rkt" …` makes the subsequent expression (in `…`) use this special reader extension. The reader extension is invoked using the `µ` reader key (on a Mac, you can easily type this as Option-m). The `µ` must be followed by a uuencoded byte-string following a certain format. The reader then automatically turns this into an image value.
 
 The best way to understand the difference is to look at these two files side-by-side:
 
