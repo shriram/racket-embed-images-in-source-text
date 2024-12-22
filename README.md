@@ -11,7 +11,7 @@ The best way to understand the difference is to look at these two files side-by-
 * [examples](examples.rkt)
 * [examples as images](examples-as-images.rkt)
 
-The latter (which you can't view outside DrRacket) has embedded images visible *as images* in DrRacket. The former has the same images embedded using this reader. The images are not meaningful without rendering, but *everything else* in the file is readable by all our usual tools (including outside DrRacket). It's worth noting that an embedded image is a (byte-)string, and hence can be skipped/copied/etc. using standard s-expression editor operations.
+The latter (which you can't meaningfully view outside DrRacket) has embedded images visible *as images* in DrRacket. The former has the same images embedded using this reader. The images are not meaningful without rendering, but *everything else* in the file is readable by all our usual tools (including outside DrRacket). It's worth noting that an embedded image is a (byte-)string, and hence can be skipped/copied/etc. using standard s-expression editor operations.
 
 # How
 
