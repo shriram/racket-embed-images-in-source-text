@@ -1,6 +1,6 @@
 # What
 
-Racket enables you to embed images in the document source. The moment you do, however, the file becomes a different format. In particular, this format is no longer textual, which means it doesn't work well with tools like `grep`, git, etc.
+Racket enables you to embed images in the document source. The moment you do, however, the file becomes a different format (WXME). In particular, this format is effectively binary, which means it doesn't work well with tools like `grep`, git, etc.
 
 A natural solution is to store images outside the file. This is a perfectly good solution, but *sometimes* it's useful to have a single self-contained file with all of its "assets".
 
@@ -64,6 +64,8 @@ The error-handling code is crap. I ran out of time to understand all the ins-and
 
 # Extensions
 
-This [packer](image-pack-unpack.rkt) produces single-line output. This has the virtue of not producing a large block of text, at the cost of making extremely wide lines. This was an intentional decision, but it could cause problems in some contexts. It would be nice to extend the packer to take flags that let the user determine whether they want wide or tall packed text.
+- This [packer](image-pack-unpack.rkt) produces single-line output. This has the virtue of not producing a large block of text, at the cost of making extremely wide lines. This was an intentional decision, but it could cause problems in some contexts. It would be nice to extend the packer to take flags that let the user determine whether they want wide or tall packed text.
 
-There is nothing *image*-specific about this. It could embed *any* binary datum. This particular pack/unpack duo is image-centric: images have a height and width, and this is recorded in the byte-string.
+- It appears there's a general trend towards [base64 over uunencode](https://retrocomputing.stackexchange.com/questions/3019/why-did-base64-win-against-uuencode) (HT ednl). So a serious version of this should probably use base64 instead.
+
+- There is nothing *image*-specific about this. It could embed *any* binary datum. This particular pack/unpack duo is image-centric: images have a height and width, and this is recorded in the byte-string. But other entities (like Comment Boxes) also cause DrRacket to save in WMXE format. So a more general version would need a tag indicating what kind of datum is being saved.
